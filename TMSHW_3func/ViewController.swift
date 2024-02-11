@@ -17,6 +17,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var Label1: UILabel!
     @IBOutlet weak var ButtonP1: UIButton!
     @IBOutlet weak var ButtonP2: UIButton!
+    @IBOutlet weak var ButtonP3: UIButton!
+    
+    @IBOutlet weak var ButtonP4: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
    ///функции
     
     func printHi(YouName: String) -> String {
-            return "Hello, " + YouName + "!"
+        return "Hello, " + YouName + "!"
       }
     
     
@@ -55,9 +59,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
      }
  
-    //-----------
     
+    func printKvadr(Chislo: Int) -> Int {
+        return  Chislo * Chislo
+      }
     
+    func radiusK(rad: Double, pipi: Double = 3.14) -> Double {
+        
+        return pipi * (rad * rad)
+        
+     }
     
     //---кнопки
     
@@ -65,7 +76,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func PushBB(_ sender: UIButton) {
         
         Label1.text = (printHi(YouName: TextF1.text!))
-        
+        TextF2.text = ("второе Имя/число")
         
         TextF1.resignFirstResponder()
         TextF2.resignFirstResponder()
@@ -80,6 +91,33 @@ class ViewController: UIViewController, UITextFieldDelegate {
         TextF1.resignFirstResponder()
         TextF2.resignFirstResponder()
         
+    }
+    
+    
+    @IBAction func PushB3(_ sender: UIButton) {
+        
+     let  Chislo1 = Int(TextF1.text!)
+        
+        Label1.text = String(printKvadr(Chislo: Chislo1!))
+        
+        TextF2.text = String(" \(TextF1.text!) * \(TextF1.text!) ")
+        
+        TextF1.resignFirstResponder()
+        TextF2.resignFirstResponder()
+    }
+    
+    
+    
+    @IBAction func PushB4(_ sender: UIButton) {
+        
+        
+        TextF2.text = "3.14 * ( \(TextF1.text!) * \(TextF1.text!))"
+        
+        Label1.text = String(radiusK(rad: Double(TextF1.text!)!))
+        
+       
+        TextF1.resignFirstResponder()
+        TextF2.resignFirstResponder()
     }
     
     //----------
